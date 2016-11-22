@@ -22,12 +22,6 @@ public class BeerMapController {
     private BeerRepository beerRepository;
 
 
-    @RequestMapping(method = RequestMethod.GET, value = "/beers")
-    @ResponseBody
-    public List<Beer> getAllBeers(){
-        return beerRepository.findAll();
-    }
-
     @RequestMapping(method = RequestMethod.GET, value = "/beersearch")
     @ResponseBody
     public List<Beer> getSortedBeers(@RequestParam(value="search") String string ){
@@ -56,8 +50,9 @@ public class BeerMapController {
         return beerTypeRepository.findAll();
     }
 
-
-
-
-
+    @RequestMapping(method = RequestMethod.GET, value = "/beers")
+    @ResponseBody
+    public List<Beer> getAllBeers(){
+        return beerRepository.findAll();
+    }
 }
