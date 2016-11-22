@@ -1,0 +1,62 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<dataSource name="MySQL - beermap_db@localhost">
+  <database-model serializer="dbm" rdbms="MYSQL" format-version="2.6">
+    <schema id="1" name="beermap_db">
+      <visible>1</visible>
+    </schema>
+    <schema id="2" name="information_schema"/>
+    <schema id="3" name="mysql"/>
+    <schema id="4" name="performance_schema"/>
+    <schema id="5" name="sakila"/>
+    <schema id="6" name="sys"/>
+    <schema id="7" name="world"/>
+    <table id="8" parent="1" name="beers_table"/>
+    <table id="9" parent="1" name="beer_types_table"/>
+    <column id="10" parent="8" name="_id">
+      <mandatory>1</mandatory>
+      <data-type>int(11)|0</data-type>
+      <sequence-identity>1</sequence-identity>
+    </column>
+    <column id="11" parent="8" name="beer_brand">
+      <mandatory>1</mandatory>
+      <data-type>text|0</data-type>
+    </column>
+    <column id="12" parent="8" name="beer_img">
+      <data-type>int(11)|0</data-type>
+    </column>
+    <column id="13" parent="8" name="beer_descr">
+      <data-type>text|0</data-type>
+    </column>
+    <column id="14" parent="8" name="type_id">
+      <mandatory>1</mandatory>
+      <data-type>int(11)|0</data-type>
+    </column>
+    <index id="15" parent="8" name="type_id">
+      <columns>type_id</columns>
+      <desc-columns></desc-columns>
+    </index>
+    <key id="16" parent="8" name="PRIMARY">
+      <columns>_id</columns>
+      <primary>1</primary>
+    </key>
+    <foreign-key id="17" parent="8" name="beers_table_ibfk_1">
+      <columns>type_id</columns>
+      <ref-key>~.beer_types_table.PRIMARY</ref-key>
+      <cascade-update-rule>restrict</cascade-update-rule>
+      <cascade-delete-rule>restrict</cascade-delete-rule>
+    </foreign-key>
+    <column id="18" parent="9" name="_id">
+      <mandatory>1</mandatory>
+      <data-type>int(11)|0</data-type>
+      <sequence-identity>1</sequence-identity>
+    </column>
+    <column id="19" parent="9" name="beer_type">
+      <mandatory>1</mandatory>
+      <data-type>text|0</data-type>
+    </column>
+    <key id="20" parent="9" name="PRIMARY">
+      <columns>_id</columns>
+      <primary>1</primary>
+    </key>
+  </database-model>
+</dataSource>
