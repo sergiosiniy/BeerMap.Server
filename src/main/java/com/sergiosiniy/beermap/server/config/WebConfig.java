@@ -1,6 +1,7 @@
 package com.sergiosiniy.beermap.server.config;
 
 import com.fasterxml.jackson.databind.ObjectMapper;
+import com.sergiosiniy.beermap.server.entity.Beer;
 import org.springframework.context.annotation.ComponentScan;
 import org.springframework.context.annotation.Configuration;
 import org.springframework.http.MediaType;
@@ -16,6 +17,8 @@ import java.util.List;
 @EnableWebMvc
 @ComponentScan("com.sergiosiniy.beermap.server")
 public class WebConfig extends WebMvcConfigurerAdapter{
+    Beer beer;
+
     @Override
     public void configureMessageConverters(List<HttpMessageConverter<?>> converters) {
         MappingJackson2HttpMessageConverter converter = new MappingJackson2HttpMessageConverter();
