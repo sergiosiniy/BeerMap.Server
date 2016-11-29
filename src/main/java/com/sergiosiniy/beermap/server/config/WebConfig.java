@@ -17,7 +17,6 @@ import java.util.List;
 @EnableWebMvc
 @ComponentScan("com.sergiosiniy.beermap.server")
 public class WebConfig extends WebMvcConfigurerAdapter{
-    Beer beer;
 
     @Override
     public void configureMessageConverters(List<HttpMessageConverter<?>> converters) {

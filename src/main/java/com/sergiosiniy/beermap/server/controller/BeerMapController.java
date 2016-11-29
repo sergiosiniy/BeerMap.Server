@@ -24,17 +24,20 @@ public class BeerMapController {
 
     @RequestMapping(method = RequestMethod.GET, value = "/beersearch")
     @ResponseBody
-    public BeersList getBeersBysStringSearch(@RequestParam(value="str") String string ){
+    public BeersList getBeersByStringSearch(@RequestParam(value="str") String string ){
         List<Beer> searchedBeers = beerRepository.findAll();
         List<Beer> list = new ArrayList<Beer>();
+        if(string.contains("%20")){
+            string = string.replace("%20"," ");
+        }
         for(Beer beer:searchedBeers){
             if(beer.getBeerBrand().toLowerCase().equals(string.toLowerCase())||
                     beer.getBeerBrand().toLowerCase().contains(string.toLowerCase())){
                 list.add(beer);
             }
         }
-        BeersList result = new BeersList(list);
-        return result;
+
+        return new BeersList(list);
     }
 
     @RequestMapping(method = RequestMethod.GET, value = "/typesearch")
@@ -48,8 +51,8 @@ public class BeerMapController {
                 list.add(beerType);
             }
         }
-        TypesList result = new TypesList(list);
-        return result;
+
+        return new TypesList(list);
     }
 
     @RequestMapping(method = RequestMethod.GET, value = "/type")

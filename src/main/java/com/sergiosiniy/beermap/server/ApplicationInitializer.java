@@ -1,7 +1,6 @@
 package com.sergiosiniy.beermap.server;
 
 import com.sergiosiniy.beermap.server.config.WebConfig;
-import com.sergiosiniy.beermap.server.repository.BeerRepository;
 import org.springframework.web.WebApplicationInitializer;
 import org.springframework.web.context.ContextLoaderListener;
 import org.springframework.web.context.support.AnnotationConfigWebApplicationContext;
