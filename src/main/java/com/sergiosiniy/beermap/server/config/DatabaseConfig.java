@@ -24,7 +24,7 @@ import java.util.Properties;
 @EnableTransactionManagement
 @ComponentScan("com.sergiosiniy.beermap.server")
 @PropertySource("classpath:db.properties")
-public class DBConfig {
+public class DatabaseConfig {
 
     @Resource
     private Environment env;

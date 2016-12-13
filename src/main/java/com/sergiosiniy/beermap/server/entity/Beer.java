@@ -19,8 +19,8 @@ public class Beer {
     private long _id;
     @Column(name = "beer_brand", nullable = false)
     private String beerBrand;
-    /*@Column(name = "beer_img")
-    private int beerImage;*/
+    @Column(name = "beer_img")
+    private String beerImageUrl;
     @Column(name = "beer_descr")
     private String beerDescription;
     @Column(name = "type_id", nullable = false)
@@ -42,14 +42,15 @@ public class Beer {
     public String getBeerDescription() {
         return beerDescription;
     }
-   /* public int getBeerImage() {
-        return beerImage;
-    }*/
+
+    public String getBeerImage() {
+        return this.beerImageUrl;
+    }
 
 
-    /*public void setBeerImage(int beerImage) {
-        this.beerImage = beerImage;
-    }*/
+    public void setBeerImage(String beerImage) {
+        this.beerImageUrl = beerImage;
+    }
 
     public void set_id(int _id) {
         this._id = _id;

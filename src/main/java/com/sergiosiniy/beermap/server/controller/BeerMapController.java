@@ -43,8 +43,12 @@ public class BeerMapController {
     @RequestMapping(method = RequestMethod.GET, value = "/typesearch")
     @ResponseBody
     public TypesList getBeerTypesByStingSearch(@RequestParam(value="str") String string ){
+
         List<BeerType> searchedTypes = beerTypeRepository.findAll();
         List<BeerType> list = new ArrayList<BeerType>();
+        if(string.contains("%20")){
+            string = string.replace("%20"," ");
+        }
         for(BeerType beerType:searchedTypes){
             if(beerType.getBeerType().toLowerCase().equals(string.toLowerCase())||
                     beerType.getBeerType().toLowerCase().contains(string.toLowerCase())){
